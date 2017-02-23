@@ -38,7 +38,8 @@ class SiteReview
      */
     public function getCategory($url)
     {
-        $response = $this->client->request('POST', self::API_URL, ['body' => "url={$url}"]);
+        $request = $this->client->createRequest('POST', self::API_URL, ['body' => "url={$url}"]);
+        $response = $this->client->send($request);
 
         if (200 != $response->getStatusCode()) {
             throw new InvalidApiResponseException();
