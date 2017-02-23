@@ -18,7 +18,7 @@ $ composer require tixastronauta/sitereview-php
 ```php
 <?php
 
-require 'vendor/autoload.php'
+require 'vendor/autoload.php';
 
 $targetUrl = "https://www.amazon.com";
 $siteReview = new \TixAstronauta\SiteReview\SiteReview();
