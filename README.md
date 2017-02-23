@@ -7,10 +7,16 @@ PHP Wrapper for Blue Coat's Site Review website: [http://sitereview.bluecoat.com
 
 # Install
 
-Via composer
+Guzzle 6 version install
 
 ```bash
-$ composer require tixastronauta/sitereview-php
+$ composer require tixastronauta/sitereview-php:~1.0
+```
+
+Guzzle 5 version install
+
+```bash
+$ composer require tixastronauta/sitereview-php:dev-guzzle5
 ```
 
 # Usage
