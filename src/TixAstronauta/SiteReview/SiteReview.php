@@ -2,7 +2,6 @@
 
 namespace TixAstronauta\SiteReview;
 
-
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use TixAstronauta\SiteReview\Exception\InvalidApiResponseException;
@@ -52,10 +51,22 @@ class SiteReview
             throw new InvalidApiResponseException();
         }
 
-        $categorization = $data['categorization'];
-        $categorization = strip_tags($categorization);
+        return self::_normalizeCategorization($data['categorization']);
+    }
 
-        return $categorization;
+    /**
+     * Strips HTML tags and extra categories from given 'categorization'
+     *
+     * @param string $categorization
+     *
+     * @return string
+     */
+    public static function _normalizeCategorization($categorization)
+    {
+        $categorization = strip_tags($categorization);
+        $categorization = explode(' and ', $categorization);
+
+        return $categorization[0];
     }
 
 
